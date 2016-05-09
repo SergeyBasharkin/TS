@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class MyGenerator {
     public static void main(String[] args) {
-        ArrayList<MyEdge> edges=generate2(0,5,6,8);
+        ArrayList<MyEdge> edges=generate2(0,5);
         for (MyEdge edge:edges){
             System.out.println("from:"+edge.from+" to:"+edge.to+" cap:"+edge.cap);
         }
@@ -24,7 +24,7 @@ public class MyGenerator {
         }
     }
     public ArrayList<MyEdge> generateList(){
-        return generate2(0,5000,6,8);
+        return generate2(0,60000);
     }
     public static class MyEdge {
         private int from;
@@ -63,7 +63,7 @@ public class MyGenerator {
             this.cap = cap;
         }
     }
-    public static ArrayList<MyEdge> generate2(int s,int t,int n,int m){
+    public static ArrayList<MyEdge> generate2(int s,int t){
         Random random=new Random();
         ArrayList<MyEdge> edges=new ArrayList<>();
         int from;

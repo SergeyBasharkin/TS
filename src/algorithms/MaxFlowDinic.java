@@ -1,6 +1,7 @@
 package algorithms;
 
 import generatedGrath.MyGenerator;
+import ReaderAndWriter.ReadGrath;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public class MaxFlowDinic {
 
-    static class Edge {
+    public static class Edge {
         int t, rev, cap, f;
 
         public Edge(int t, int rev, int cap) {
@@ -90,12 +91,8 @@ public class MaxFlowDinic {
 //        addEdge(graph, 0, 2, 2);
 //        addEdge(graph, 1, 2, 2);
 //        System.out.println(4 == maxFlow(graph, 0, 2));
-        MyGenerator generator=new MyGenerator();
-        List<MyGenerator.MyEdge> genGraph=generator.generateList();
+        List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges("docs/5000.txt");
         List<Edge>[] graph = createGraph(genGraph.size());
-        for (MyGenerator.MyEdge edge:genGraph){
-            System.out.println("from:"+edge.getFrom()+" to:"+edge.getTo()+" cap:"+edge.getCap());
-        }
         for (MyGenerator.MyEdge edge:genGraph){
             addEdge(graph,edge.getFrom(),edge.getTo(),edge.getCap());
         }
