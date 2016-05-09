@@ -8,3 +8,25 @@ file: docs/100000.txt, time: 1145ms, maxFlow: 17609
 file: docs/120000.txt, time: 1531ms, maxFlow: 16901
 file: docs/250000.txt, time: 1761ms, maxFlow: 8475
 file: docs/500000.txt, time: 7173ms, maxFlow: 16052
+
+file: docs/500.txt, time: 2ms, maxFlow: 2
+file: docs/1000.txt, time: 4ms, maxFlow: 4
+file: docs/10000.txt, time: 52ms, maxFlow: 52
+file: docs/25000.txt, time: 134ms, maxFlow: 134
+file: docs/50000.txt, time: 310ms, maxFlow: 310
+file: docs/75000.txt, time: 468ms, maxFlow: 468
+file: docs/100000.txt, time: 1202ms, maxFlow: 1202
+file: docs/120000.txt, time: 1356ms, maxFlow: 1356
+file: docs/250000.txt, time: 1482ms, maxFlow: 1482
+file: docs/500000.txt, time: 7597ms, maxFlow: 7597
+file: 50000, time: 273ms, maxFlow: 273
+file: docs/500.txt, time: 2ms, maxFlow: 2
+file: docs/1000.txt, time: 5ms, maxFlow: 5
+file: docs/10000.txt, time: 62ms, maxFlow: 62
+file: docs/25000.txt, time: 200ms, maxFlow: 200
+file: docs/50000.txt, time: 258ms, maxFlow: 258
+file: docs/75000.txt, time: 580ms, maxFlow: 580
+file: docs/100000.txt, time: 1161ms, maxFlow: 1161
+file: docs/120000.txt, time: 1164ms, maxFlow: 1164
+file: docs/250000.txt, time: 1353ms, maxFlow: 1353
+file: docs/500000.txt, time: 7745ms, maxFlow: 7745

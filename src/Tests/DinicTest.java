@@ -33,10 +33,10 @@ public class DinicTest {
             //TODO вставьте свой алгоритм
             for (String p:a) {
                 long s = System.currentTimeMillis();
-                int maxFlow = dinic(p,Integer.parseInt(p.substring(5,p.length()-4)));
+                long maxFlow = dinic(p,Integer.parseInt(p.substring(5,p.length()-4)));
                 //TODO путь к файлу с графом
                 long e = System.currentTimeMillis();
-                pw.write("file: " + p + ", time: " + (e - s) + "ms, maxFlow: " + maxFlow + "\n");
+                pw.write("file: " + p + ", time: " + maxFlow + "ms, maxFlow: " + maxFlow + "\n");
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class DinicTest {
             pw.close();
         }
     }
-    public static int dinic(String p,int size) {
+    public static long dinic(String p,int size) {
         MaxFlowDinic maxFlowDinic=new MaxFlowDinic();
         String path=p;
         List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
@@ -53,8 +53,12 @@ public class DinicTest {
         for (MyGenerator.MyEdge edge:genGraph){
             maxFlowDinic.addEdge(graph,edge.getFrom(),edge.getTo(),edge.getCap());
         }
+        long s=System.currentTimeMillis();
+        int maxFlow=maxFlowDinic.maxFlow(graph,0,size);
+        long e=System.currentTimeMillis();
+        long result=e-s;
         //TODO опять же в генерации надо дабовить сток и исток
-        return maxFlowDinic.maxFlow(graph,0,size);
+        return result;
     }
     public static int pushRelabel(int[][] cap) {
 //        String path="docs/4000.txt";
