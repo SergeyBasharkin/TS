@@ -1,1 +1,10 @@
-
+file: docs/500.txt, time: 32ms, maxFlow: 2880
+file: docs/1000.txt, time: 12ms, maxFlow: 13057
+file: docs/10000.txt, time: 83ms, maxFlow: 12362
+file: docs/25000.txt, time: 184ms, maxFlow: 12879
+file: docs/50000.txt, time: 295ms, maxFlow: 10200
+file: docs/75000.txt, time: 804ms, maxFlow: 10570
+file: docs/100000.txt, time: 1145ms, maxFlow: 17609
+file: docs/120000.txt, time: 1531ms, maxFlow: 16901
+file: docs/250000.txt, time: 1761ms, maxFlow: 8475
+file: docs/500000.txt, time: 7173ms, maxFlow: 16052
