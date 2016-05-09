@@ -2,6 +2,7 @@ package Tests;
 
 import ReaderAndWriter.ReadGrath;
 import algorithms.MaxFlowDinic;
+import algorithms.PushRelabel;
 import generatedGrath.MyGenerator;
 
 import java.io.*;
@@ -14,9 +15,9 @@ import java.util.List;
  */
 public class DinicTest {
     public static void main(String[] args) {
-        long s =System.currentTimeMillis();
+
         //TODO файл для вывода тестов
-        File file= new File("docs/DinicTest.txt");
+        File file= new File("docs/PushRelabelTest.txt");
         if (!file.exists()){
             try {
                 file.createNewFile();
@@ -25,11 +26,15 @@ public class DinicTest {
             }
         }
         PrintWriter pw=null;
-        String path="docs/5000.txt";
+        //TODO это(3 следующие строчки) для проталкивания предпотока
+        String path="docs/8000.txt";
+        ArrayList<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
+        int cap[][] =MyGenerator.convertEdgeToCap(genGraph,8000);
         try {
             pw=new PrintWriter(new FileOutputStream(file,true));
             //TODO вставьте свой алгоритм
-            int maxFlow=dinic();
+            long s =System.currentTimeMillis();
+            int maxFlow=pushRelabel(cap);
             //TODO путь к файлу с графом
             long e =System.currentTimeMillis();
             pw.write("file: "+path+", time: "+(e-s)+"ms, maxFlow: "+maxFlow+"\n");
@@ -43,17 +48,20 @@ public class DinicTest {
     }
     public static int dinic() {
         MaxFlowDinic maxFlowDinic=new MaxFlowDinic();
-        String path="docs/5000.txt";
+        String path="docs/4000.txt";
         List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
         List<MaxFlowDinic.Edge>[] graph = maxFlowDinic.createGraph(genGraph.size());
         for (MyGenerator.MyEdge edge:genGraph){
             maxFlowDinic.addEdge(graph,edge.getFrom(),edge.getTo(),edge.getCap());
         }
-        long e =System.currentTimeMillis();
         //TODO опять же в генерации надо дабовить сток и исток
-        return maxFlowDinic.maxFlow(graph,0,5000);
+        return maxFlowDinic.maxFlow(graph,0,4000);
     }
-    public static int pushRelabel() {
-        return 0;
+    public static int pushRelabel(int[][] cap) {
+//        String path="docs/4000.txt";
+//        ArrayList<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
+//        int cap[][] =MyGenerator.convertEdgeToCap(genGraph,4000);
+        PushRelabel pushRelabel=new PushRelabel(cap);
+        return pushRelabel.maxFlow(0,cap.length-1);
     }
 }
