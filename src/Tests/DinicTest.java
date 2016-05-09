@@ -15,6 +15,7 @@ import java.util.List;
 public class DinicTest {
     public static void main(String[] args) {
         long s =System.currentTimeMillis();
+        //TODO файл для вывода тестов
         File file= new File("docs/DinicTest.txt");
         if (!file.exists()){
             try {
@@ -27,6 +28,7 @@ public class DinicTest {
         PrintWriter pw=null;
         try {
             pw=new PrintWriter(new FileOutputStream(file,true));
+            //TODO путь к файлу с графом
             String path="docs/5000.txt";
             List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
             List<MaxFlowDinic.Edge>[] graph = maxFlowDinic.createGraph(genGraph.size());
@@ -34,6 +36,7 @@ public class DinicTest {
                 maxFlowDinic.addEdge(graph,edge.getFrom(),edge.getTo(),edge.getCap());
             }
             long e =System.currentTimeMillis();
+            //TODO опять же в генерации надо дабовить сток и исток
             pw.write("file: "+path+", time: "+(e-s)+"ms, maxFlow: "+maxFlowDinic.maxFlow(graph,0,5000)+"\n");
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -63,6 +63,9 @@ public class MyGenerator {
             this.cap = cap;
         }
     }
+
+
+    //TODO в генераторе надо указывать исток и сток.
     public static ArrayList<MyEdge> generate2(int s,int t){
         Random random=new Random();
         ArrayList<MyEdge> edges=new ArrayList<>();
