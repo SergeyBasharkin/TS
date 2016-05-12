@@ -1,4 +1,4 @@
-package Tests;
+﻿package Tests;
 
 import ReaderAndWriter.ReadGrath;
 import algorithms.MaxFlowDinic;
@@ -60,11 +60,18 @@ public class DinicTest {
         //TODO опять же в генерации надо дабовить сток и исток
         return result;
     }
-    public static int pushRelabel(int[][] cap) {
-//        String path="docs/4000.txt";
-//        ArrayList<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(path);
-//        int cap[][] =MyGenerator.convertEdgeToCap(genGraph,4000);
-        PushRelabel pushRelabel=new PushRelabel(cap);
-        return pushRelabel.maxFlow(0,cap.length-1);
+public static long pushRelabel(String p, int size ) {
+        NewPushRelabel g = new NewPushRelabel();
+        List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges(p);
+        for (MyGenerator.MyEdge edge:genGraph){
+            g.addEdge(edge.getFrom(),edge.getTo(),edge.getCap());
+        }
+        long s=System.currentTimeMillis();
+        long maxFlow=g.getMinCutValue(0,size);
+        System.out.println(maxFlow);
+        long e=System.currentTimeMillis();
+        long result=e-s;
+        return result ;
+
     }
 }
