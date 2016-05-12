@@ -30,10 +30,19 @@ public class MyGenerator {
         private int from;
         private int to;
         private int cap;
+        private boolean vis;
+
+        public boolean isVis() {
+            return vis;
+        }
+
+        public void setVis(boolean vis) {
+            this.vis = vis;
+        }
 
         public int f;
 
-        public MyEdge(int from, int to, int cap) {
+        public MyEdge(int from, int to, int cap)  {
             this.from = from;
             this.to = to;
             this.cap = cap;
@@ -78,7 +87,7 @@ public class MyGenerator {
             while (to==from){
                 to=random.nextInt(t-i+1)+i;
             }
-            c=random.nextInt(1000)+1000;
+            c=random.nextInt(10000)+10000;
             edges.add(new MyEdge(from,to,c));
         }
         boolean vseOk;
@@ -92,7 +101,8 @@ public class MyGenerator {
             if(!vseOk){
                 from=random.nextInt(i);
                 to=i;
-                c=random.nextInt(1000)+1000;
+
+                c=random.nextInt(10000)+10000;
                 edges.add(new MyEdge(from,to,c));
             }
         }

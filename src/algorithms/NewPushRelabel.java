@@ -161,14 +161,16 @@ public class NewPushRelabel<T> extends CutGraph<T> {
 
     public static void main(String[] args) {
         NewPushRelabel g = new NewPushRelabel();
-
-        List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges("docs/500.txt");
-        for (MyGenerator.MyEdge edge:genGraph){
-            g.addEdge(edge.getFrom(),edge.getTo(),edge.getCap());
+        List<MyGenerator.MyEdge> genGraph= ReadGrath.readEdges("docs/400.txt");
+        for (int i = 0; i <20 ; i++) {
+            for (MyGenerator.MyEdge edge:genGraph){
+                g.addEdge(edge.getFrom(),edge.getTo(),edge.getCap());
+            }
         }
 
 
-        System.out.println(g.getMinCutValue(0,500));
-        System.out.println(g.getMinCut(0,500));
+
+        System.out.println(g.getMinCutValue(0,400));
+        System.out.println(g.getMinCut(0,400));
     }
 }

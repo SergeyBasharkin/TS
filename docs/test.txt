@@ -1,0 +1,13 @@
+Ford:1; Dinic:0; Ed:0; Push:0
+Ford:5; Dinic:0; Ed:0; Push:0
+Ford:47; Dinic:0; Ed:0; Push:1
+Ford:194; Dinic:1; Ed:0; Push:1
+Ford:1316; Dinic:3; Ed:1; Push:2
+Ford:4893; Dinic:8; Ed:2; Push:2
+Ford:10987; Dinic:11; Ed:5; Push:4
+Ford:19641; Dinic:18; Ed:6; Push:5
+Ford:21565; Dinic:15; Ed:8; Push:13
+Ford:17906; Dinic:22; Ed:5; Push:7
+
+
+

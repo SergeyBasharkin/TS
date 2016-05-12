@@ -13,20 +13,24 @@ public class PushRelabel {
 
     public int maxFlow(int s, int t) {
         int n = cap.length;
-
+        System.out.println("done");
         int[] h = new int[n];
-        h[s] = n;
+        h[s] = n-1;
+        System.out.println("done");
 
         int[] maxh = new int[n];
+        System.out.println("done");
 
         int[][] f = new int[n][n];
         int[] e = new int[n];
+        System.out.println("done");
 
         for (int i = 0; i < n; ++i) {
             f[s][i] = cap[s][i];
             f[i][s] = -f[s][i];
             e[i] = cap[s][i];
         }
+        System.out.println("done");
 
         for (int sz = 0; ; ) {
             if (sz == 0) {
@@ -37,6 +41,7 @@ public class PushRelabel {
                         maxh[sz++] = i;
                     }
             }
+
             if (sz == 0)
                 break;
             while (sz != 0) {
@@ -54,6 +59,7 @@ public class PushRelabel {
                         pushed = true;
                     }
                 }
+
                 if (!pushed) {
                     h[i] = Integer.MAX_VALUE;
                     for (int j = 0; j < n; ++j)
@@ -66,10 +72,12 @@ public class PushRelabel {
                 }
             }
         }
+        System.out.println("done");
 
         int flow = 0;
         for (int i = 0; i < n; i++)
             flow += f[s][i];
+        System.out.println("done");
 
         return flow;
     }
